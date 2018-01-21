@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta charset="UTF-8"/>
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Word chain generator</title>
+		<script src="generateChain.js" charset="utf-8"></script>
+	</head>
+	<body>
+		<h1>Result:</h1>
+		<input type="text" id="filename" placeholder="filename"/>
+		<button onclick="getAndGenerate(); return false">generate</button>
+		<hr></hr>
+		<textarea id="result"></textarea>
+		<script charset="utf-8">
+		    function getAndGenerate() {
+		        var input = document.querySelector("#filename");
+		        var result = document.querySelector("#result");
+                fetch(input.value)
+                    .then(response => response.text())
+                    .then(text => {
+                        result.value = JSON.stringify(generateChain(text));
+                    });
+            }
+        </script>
+	</body>
+</html>

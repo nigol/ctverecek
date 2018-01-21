@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta charset="UTF-8"/>
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>Mazaný Čtvereček</title>
+		<link rel=icon href=ctverecek.png sizes="16x16" type="image/png">
+		<meta property="og:url"           content="http://c.nigol.cz" />
+        <meta property="og:type"          content="website" />
+        <meta property="og:title"         content="Mazaný Čtvereček" />
+        <meta property="og:description"   content="Mazaný jako chleba sádlem. Silný jako rýma v lednu. Chytrý jako rádio.  Mazaný Čvereček Vám pomůže uvést věci na pravou míru. A možná přijde i Peroutkův článek." />
+        <meta property="og:image"         content="http://c.nigol.cz/ctverecek2x.png" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kavivanar">
+		<link rel="stylesheet" href="style.css">
+		<script src="chain.js" charset="utf-8"></script>
+		<script src="words.js" charset="utf-8"></script>
+	</head>
+	<body>
+	    <header>
+	        <img src="ctverecek.png" srcset="ctverecek.png 1x, ctverecek2x.png 2x" style="float: left; width: 100px; margin-right: 2em"></img>
+		    <h1>Mazaný Čtvereček</h1>
+	    </header>
+		<div class="quoteContainer">
+		    <div id="quote"></div>
+		    <div class="controls">
+		        <button id="generate" onclick="generate(words); return false">Další moudro</button>
+		        <div style="float: right">
+		            <a id="tweetButton" target="_blank" href="">
+Tweetni</a>
+                    <iframe src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Fc.nigol.cz&layout=button_count&size=large&mobile_iframe=true&width=84&height=28" width="84" height="28" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+		        </div>
+		    </div>
+		</div>
+		<div class="disclaimer">
+		    <p style="font-size: 180%">
+		        Mazaný jako chleba sádlem. Silný jako rýma v lednu. Chytrý jako rádio.
+		    </p>
+		    <p style="font-size: 160%; font-weight: bold">
+		        I Vy můžete tweetovat jako on!
+		    </p>
+		    <p style="font-size: 140%">
+		        Mazaný Čvereček Vám pomůže uvést věci na pravou míru. A možná přijde i Peroutkův článek.
+		    </p>
+		</div>
+		<footer>
+		    2018
+		    ·
+		    <a href="http://www.nigol.cz">www.nigol.cz</a>
+		    ·
+		    <a href="https://github.com/nigol/ctverecek">Github</a>
+		</footer>
+		<script charset="utf-8">
+		    function generate(chain) {
+		        var quote = generateSentence(chain);
+                var says = document.getElementById("quote");
+                says.innerHTML = quote;
+                var tweetButton = document.getElementById("tweetButton");
+                tweetButton.href = "https://twitter.com/intent/tweet?text=" + encodeURI(quote + " http://c.nigol.cz");
+            }
+            generate(words);
+		</script>
+	</body>
+</html>
